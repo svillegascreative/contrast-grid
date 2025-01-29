@@ -1,3 +1,7 @@
+<script>
+	import Swatch from './Swatch.svelte';
+</script>
+
 <table>
 	<tbody>
 		<tr>
@@ -9,19 +13,19 @@
 		<tr>
 			<th>Colour 1</th>
 			<td></td>
-			<td></td>
-			<td></td>
+			<td><Swatch /></td>
+			<td><Swatch /></td>
 		</tr>
 		<tr>
 			<th>Colour 2</th>
+			<td><Swatch /></td>
 			<td></td>
-			<td></td>
-			<td></td>
+			<td><Swatch /></td>
 		</tr>
 		<tr>
 			<th>Colour 3</th>
-			<td></td>
-			<td></td>
+			<td><Swatch /></td>
+			<td><Swatch /></td>
 			<td></td>
 		</tr>
 	</tbody>
