@@ -1,4 +1,8 @@
-<article>
+<script lang="ts">
+	let { fg = 'black', bg = 'white' } = $props();
+</script>
+
+<article style="color: {fg}; background-color: {bg};">
 	<span>AaBbCc</span>
 </article>
 
