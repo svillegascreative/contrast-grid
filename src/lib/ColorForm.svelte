@@ -22,5 +22,5 @@
 		</div>
 	</fieldset>
 
-	<button type="submit">Make grid</button>
+	<button type="submit">Get permalink</button>
 </form>
