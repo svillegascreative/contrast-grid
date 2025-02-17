@@ -1,17 +1,5 @@
 <script>
-	import { onMount } from 'svelte';
-
-	let defaultColor = '#ffffff';
-	let color1 = defaultColor;
-	let color2 = defaultColor;
-	let color3 = defaultColor;
-
-	onMount(() => {
-		let url = new URL(window.location.href);
-		color1 = url.searchParams.get('color1') || defaultColor;
-		color2 = url.searchParams.get('color2') || defaultColor;
-		color3 = url.searchParams.get('color3') || defaultColor;
-	});
+	import { colors } from '../state/colors.svelte.js';
 </script>
 
 <form>
@@ -20,17 +8,17 @@
 
 		<div>
 			<label for="color-input-1">Colour 1</label>
-			<input id="color-input-1" type="color" name="color1" value={color1} />
+			<input id="color-input-1" type="color" name="color1" bind:value={colors.c1} />
 		</div>
 
 		<div>
 			<label for="color-input-2">Colour 2</label>
-			<input id="color-input-2" type="color" name="color2" value={color2} />
+			<input id="color-input-2" type="color" name="color2" bind:value={colors.c2} />
 		</div>
 
 		<div>
 			<label for="color-input-3">Colour 3</label>
-			<input id="color-input-3" type="color" name="color3" value={color3} />
+			<input id="color-input-3" type="color" name="color3" bind:value={colors.c3} />
 		</div>
 	</fieldset>
 
