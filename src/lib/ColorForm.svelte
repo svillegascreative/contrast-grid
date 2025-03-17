@@ -8,17 +8,29 @@
 
 		<div>
 			<label for="color-input-1">Colour 1</label>
-			<input id="color-input-1" type="color" name="color1" bind:value={colors.c1} />
+			<sl-color-picker
+				id="color-input-1"
+				value={colors.c1}
+				onsl-input={(event) => (colors.c1 = event.target.value)}
+			></sl-color-picker>
 		</div>
 
 		<div>
 			<label for="color-input-2">Colour 2</label>
-			<input id="color-input-2" type="color" name="color2" bind:value={colors.c2} />
+			<sl-color-picker
+				id="color-input-1"
+				value={colors.c2}
+				onsl-input={(event) => (colors.c2 = event.target.value)}
+			></sl-color-picker>
 		</div>
 
 		<div>
 			<label for="color-input-3">Colour 3</label>
-			<input id="color-input-3" type="color" name="color3" bind:value={colors.c3} />
+			<sl-color-picker
+				id="color-input-1"
+				value={colors.c3}
+				onsl-input={(event) => (colors.c3 = event.target.value)}
+			></sl-color-picker>
 		</div>
 	</fieldset>
 
