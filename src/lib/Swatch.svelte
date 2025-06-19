@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import Color from 'colorjs.io';
 	let { fg = 'black', bg = 'white' } = $props();
 
@@ -10,8 +10,46 @@
 </script>
 
 <article style="color: {fg}; background-color: {bg};">
-	<p>AaBbCc</p>
-	<p>{contrast.toFixed(2)}</p>
+	<p class="ratio">{contrast.toFixed(2)}</p>
+
+	<table>
+		<tbody>
+			<tr>
+				<th>Text</th>
+				<td>
+					{#if contrast > 7}
+						<p>AAA</p>
+					{:else if contrast > 4.5}
+						<p>AA</p>
+					{:else}
+						<p>n/a</p>
+					{/if}
+				</td>
+			</tr>
+			<tr>
+				<th>Large text</th>
+				<td>
+					{#if contrast > 4.5}
+						<p>AAA</p>
+					{:else if contrast > 3}
+						<p>AA</p>
+					{:else}
+						<p>n/a</p>
+					{/if}
+				</td>
+			</tr>
+			<tr>
+				<th>UI</th>
+				<td>
+					{#if contrast > 3}
+						<p>AA</p>
+					{:else}
+						<p>n/a</p>
+					{/if}
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </article>
 
 <style>
@@ -21,6 +59,11 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		padding: 2rem;
+		padding: 1rem;
+	}
+
+	.ratio {
+		font-size: 3rem;
+		line-height: 1;
 	}
 </style>
