@@ -34,5 +34,53 @@
 		</div>
 	</fieldset>
 
+	<fieldset>
+		<legend>Display options</legend>
+
+		<fieldset>
+			<legend>WCAG version</legend>
+			<label>
+				<input type="radio" name="wcag" value="2-0" />
+				2.0
+			</label>
+			<label>
+				<input type="radio" name="wcag" value="2-1" />
+				2.1
+			</label>
+			<label>
+				<input type="radio" name="wcag" value="2-2" />
+				2.2
+			</label>
+		</fieldset>
+
+		<fieldset>
+			<legend>WCAG level</legend>
+			<label>
+				<input type="radio" name="level" value="aa" />
+				AA (& AAA)
+			</label>
+			<label>
+				<input type="radio" name="level" value="aaa" />
+				AAA
+			</label>
+		</fieldset>
+
+		<fieldset>
+			<legend>Elements</legend>
+			<label>
+				<input type="radio" name="elements" value="text" />
+				Text
+			</label>
+			<label>
+				<input type="radio" name="elements" value="large-text" />
+				Large text
+			</label>
+			<label>
+				<input type="radio" name="elements" value="graphics" />
+				graphics
+			</label>
+		</fieldset>
+	</fieldset>
+
 	<button type="submit">Get permalink</button>
 </form>
