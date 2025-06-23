@@ -1,6 +1,10 @@
 <script>
+	import { getContext } from 'svelte';
 	import Color from 'colorjs.io';
+
 	let { fg = 'black', bg = 'white' } = $props();
+
+	const { wcag } = getContext('app');
 
 	let contrast = $derived.by(() => {
 		let fgColor = new Color(fg);
@@ -14,40 +18,48 @@
 
 	<table>
 		<tbody>
-			<tr>
-				<th>Text</th>
-				<td>
-					{#if contrast > 7}
-						<p>AAA</p>
-					{:else if contrast > 4.5}
-						<p>AA</p>
-					{:else}
-						<p>n/a</p>
-					{/if}
-				</td>
-			</tr>
-			<tr>
-				<th>Large text</th>
-				<td>
-					{#if contrast > 4.5}
-						<p>AAA</p>
-					{:else if contrast > 3}
-						<p>AA</p>
-					{:else}
-						<p>n/a</p>
-					{/if}
-				</td>
-			</tr>
-			<tr>
-				<th>UI</th>
-				<td>
-					{#if contrast > 3}
-						<p>AA</p>
-					{:else}
-						<p>n/a</p>
-					{/if}
-				</td>
-			</tr>
+			{#if wcag.elements.text}
+				<tr>
+					<th>Text</th>
+					<td>
+						{#if contrast > 7}
+							<p>AAA</p>
+						{:else if contrast > 4.5}
+							<p>AA</p>
+						{:else}
+							<p>n/a</p>
+						{/if}
+					</td>
+				</tr>
+			{/if}
+
+			{#if wcag.elements.largeText}
+				<tr>
+					<th>Large text</th>
+					<td>
+						{#if contrast > 4.5}
+							<p>AAA</p>
+						{:else if contrast > 3}
+							<p>AA</p>
+						{:else}
+							<p>n/a</p>
+						{/if}
+					</td>
+				</tr>
+			{/if}
+
+			{#if wcag.elements.graphic}
+				<tr>
+					<th>UI</th>
+					<td>
+						{#if contrast > 3}
+							<p>AA</p>
+						{:else}
+							<p>n/a</p>
+						{/if}
+					</td>
+				</tr>
+			{/if}
 		</tbody>
 	</table>
 </article>

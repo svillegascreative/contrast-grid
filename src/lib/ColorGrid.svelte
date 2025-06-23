@@ -1,7 +1,8 @@
 <script>
-	import { colors } from '../state/colors.svelte.js';
-
+	import { getContext } from 'svelte';
 	import Swatch from './Swatch.svelte';
+
+	const { wcag, colors } = getContext('app');
 </script>
 
 <table>
