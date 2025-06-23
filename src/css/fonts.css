@@ -1,0 +1,31 @@
+@font-face {
+	font-family: 'Candela';
+	src: url('/fonts/CandelaBook-webfont.woff') format('woff');
+	font-weight: 400;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Candela';
+	src: url('/fonts/CandelaItalic-webfont.woff') format('woff');
+	font-weight: 400;
+	font-display: swap;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Candela';
+	src: url('/fonts/CandelaBold-webfont.woff') format('woff');
+	font-weight: bold;
+	font-display: swap;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Candela';
+	src: url('/fonts/CandelaBoldItalic-webfont.woff') format('woff');
+	font-weight: bold;
+	font-display: swap;
+	font-style: italic;
+}
