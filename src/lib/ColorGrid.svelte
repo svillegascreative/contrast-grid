@@ -33,3 +33,15 @@
 		</tr>
 	</tbody>
 </table>
+
+<style>
+	table,
+	td {
+		border: none;
+	}
+
+	th,
+	td {
+		padding: 4px;
+	}
+</style>

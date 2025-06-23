@@ -92,3 +92,9 @@
 
 	<button type="submit">Get permalink</button>
 </form>
+
+<style>
+	fieldset {
+		border: none;
+	}
+</style>
