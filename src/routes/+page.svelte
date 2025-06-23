@@ -1,14 +1,20 @@
 <script>
-	import { onMount } from 'svelte';
+	import { onMount, setContext } from 'svelte';
 	import ColorForm from '$lib/ColorForm.svelte';
 	import ColorGrid from '$lib/ColorGrid.svelte';
 	import { colors } from '../state/colors.svelte.js';
+	import { wcag } from '../state/wcag.svelte.js';
 
-	onMount(() => {
-		let url = new URL(window.location.href);
-		colors.c1 = url.searchParams.get('color1') || colors.c1;
-		colors.c2 = url.searchParams.get('color2') || colors.c2;
-		colors.c3 = url.searchParams.get('color3') || colors.c3;
+	// onMount(() => {
+	// 	let url = new URL(window.location.href);
+	// 	colors.c1 = url.searchParams.get('color1') || colors.c1;
+	// 	colors.c2 = url.searchParams.get('color2') || colors.c2;
+	// 	colors.c3 = url.searchParams.get('color3') || colors.c3;
+	// });
+
+	setContext('app', {
+		wcag,
+		colors
 	});
 </script>
 

@@ -1,5 +1,8 @@
 <script>
-	import { colors } from '../state/colors.svelte.js';
+	import { getContext } from 'svelte';
+	import { WCAG } from '../constants';
+
+	const { wcag, colors } = getContext('app');
 </script>
 
 <form>
@@ -39,46 +42,50 @@
 
 		<fieldset>
 			<legend>WCAG version</legend>
-			<label>
-				<input type="radio" name="wcag" value="2-0" />
-				2.0
-			</label>
-			<label>
-				<input type="radio" name="wcag" value="2-1" />
-				2.1
-			</label>
-			<label>
-				<input type="radio" name="wcag" value="2-2" />
-				2.2
-			</label>
+			{#each WCAG.versions as version}
+				<label>
+					<input
+						type="radio"
+						name="version"
+						value={version}
+						checked={version === wcag.version}
+						onchange={() => (wcag.version = version)}
+					/>
+					{version}
+				</label>
+			{/each}
 		</fieldset>
 
 		<fieldset>
 			<legend>WCAG level</legend>
-			<label>
-				<input type="radio" name="level" value="aa" />
-				AA (& AAA)
-			</label>
-			<label>
-				<input type="radio" name="level" value="aaa" />
-				AAA
-			</label>
+			{#each WCAG.levels as level}
+				<label>
+					<input
+						type="radio"
+						name="level"
+						value={level}
+						checked={level === wcag.level}
+						onchange={() => (wcag.level = level)}
+					/>
+					{level}
+				</label>
+			{/each}
 		</fieldset>
 
 		<fieldset>
 			<legend>Elements</legend>
-			<label>
-				<input type="radio" name="elements" value="text" />
-				Text
-			</label>
-			<label>
-				<input type="radio" name="elements" value="large-text" />
-				Large text
-			</label>
-			<label>
-				<input type="radio" name="elements" value="graphics" />
-				graphics
-			</label>
+			{#each Object.entries(WCAG.elements) as [key, string]}
+				<label>
+					<input
+						type="checkbox"
+						name="elements"
+						value={key}
+						checked={wcag.elements[key]}
+						onchange={() => (wcag.elements[key] = !wcag.elements[key])}
+					/>
+					{string}
+				</label>
+			{/each}
 		</fieldset>
 	</fieldset>
 
