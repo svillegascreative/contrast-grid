@@ -12,7 +12,6 @@ A little experiment to build a colour contrast grid, learning SvelteKit and Colo
 
 Just some brief notes to keep track of where I'm at and what I'm planning to do next.
 
-1. **CURRENT** Enable show/hide swatches based on WCAG version and level
 1. Make UI pretty
 1. Make permalink button copy URL to clipboard
 1. Enable add/remove colours to expand palette and grid
