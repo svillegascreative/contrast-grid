@@ -82,6 +82,7 @@
 						value={key}
 						checked={wcag.elements[key]}
 						onchange={() => (wcag.elements[key] = !wcag.elements[key])}
+						disabled={key === 'graphic' && wcag.version === '2.0'}
 					/>
 					{string}
 				</label>
