@@ -13,58 +13,35 @@
 	});
 </script>
 
-{#if wcag.level === 'AAA' && ((wcag.elements.text && contrast < 7) || (wcag.elements.largeText && contrast < 4.5))}
+{#if (wcag.level === 'AAA' && wcag.elements.text && contrast < 7) || (wcag.level === 'AAA' && wcag.elements.largeText && contrast < 4.5)}
 	<div></div>
 {:else}
 	<article style="color: {fg}; background-color: {bg};">
 		<p class="ratio">{contrast.toFixed(2)}</p>
 
-		<table>
-			<tbody>
-				{#if wcag.elements.text}
-					<tr>
-						<th>Text</th>
-						<td>
-							{#if contrast > 7}
-								<p>AAA</p>
-							{:else if contrast > 4.5}
-								<p>AA</p>
-							{:else}
-								<p>n/a</p>
-							{/if}
-						</td>
-					</tr>
-				{/if}
+		{#if wcag.elements.text}
+			<span
+				>{(wcag.level === 'AA' && contrast > 4.5) || (wcag.level === 'AAA' && contrast > 7)
+					? '✔️'
+					: '❌'} TEXT</span
+			>
+		{/if}
 
-				{#if wcag.elements.largeText}
-					<tr>
-						<th>Large text</th>
-						<td>
-							{#if contrast > 4.5}
-								<p>AAA</p>
-							{:else if contrast > 3}
-								<p>AA</p>
-							{:else}
-								<p>n/a</p>
-							{/if}
-						</td>
-					</tr>
-				{/if}
+		{#if wcag.elements.largeText}
+			<span
+				>{(wcag.level === 'AA' && contrast > 3) || (wcag.level === 'AAA' && contrast > 4.5)
+					? '✔️'
+					: '❌'} LARGE</span
+			>
+		{/if}
 
-				{#if wcag.version !== '2.0' && wcag.elements.graphic}
-					<tr>
-						<th>Graphic</th>
-						<td>
-							{#if contrast > 3}
-								<p>AA</p>
-							{:else}
-								<p>n/a</p>
-							{/if}
-						</td>
-					</tr>
-				{/if}
-			</tbody>
-		</table>
+		{#if wcag.version !== '2.0' && wcag.elements.graphic}
+			<span
+				>{(wcag.level === 'AA' && contrast > 3) || (wcag.level === 'AAA' && contrast > 4.5)
+					? '✔️'
+					: '❌'} UI</span
+			>
+		{/if}
 	</article>
 {/if}
 
