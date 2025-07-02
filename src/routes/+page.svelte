@@ -19,11 +19,11 @@
 </script>
 
 <main>
-	<h1>Contrast Grid</h1>
+	<header>
+		<h1>Contrast Grid</h1>
 
-	<section aria-label="colour form">
 		<ColorForm />
-	</section>
+	</header>
 
 	<section aria-label="contrast grid">
 		<ColorGrid />
@@ -32,12 +32,21 @@
 
 <style>
 	main {
+		height: 100vh;
 		display: grid;
-		grid-template-columns: 1fr 3fr;
 		gap: 2rem;
+
+		@media (orientation: portrait) {
+			grid-template-columns: 1fr;
+		}
+		@media (orientation: landscape) {
+			grid-template-columns: minmax(auto, 1fr) 5fr;
+		}
 	}
 
-	h1 {
-		grid-column: span 2;
+	header {
+		background: #333;
+		color: #eee;
+		padding: 1rem;
 	}
 </style>

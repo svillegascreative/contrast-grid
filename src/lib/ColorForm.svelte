@@ -5,96 +5,141 @@
 	const { wcag, colors } = getContext('app');
 </script>
 
-<form>
-	<fieldset>
-		<legend>Grid Colours</legend>
+<div class="form-container">
+	<form>
+		<fieldset class="colors">
+			<legend>Grid Colours</legend>
 
-		<div>
-			<label for="color-input-1">Colour 1</label>
+			<label for="color-input-1" class="visually-hidden">Colour 1</label>
 			<sl-color-picker
 				id="color-input-1"
 				value={colors.c1}
 				onsl-input={(event) => (colors.c1 = event.target.value)}
 			></sl-color-picker>
-		</div>
 
-		<div>
-			<label for="color-input-2">Colour 2</label>
+			<label for="color-input-2" class="visually-hidden">Colour 2</label>
 			<sl-color-picker
 				id="color-input-1"
 				value={colors.c2}
 				onsl-input={(event) => (colors.c2 = event.target.value)}
 			></sl-color-picker>
-		</div>
 
-		<div>
-			<label for="color-input-3">Colour 3</label>
+			<label for="color-input-3" class="visually-hidden">Colour 3</label>
 			<sl-color-picker
 				id="color-input-1"
 				value={colors.c3}
 				onsl-input={(event) => (colors.c3 = event.target.value)}
 			></sl-color-picker>
-		</div>
-	</fieldset>
 
-	<fieldset>
-		<legend>Display options</legend>
-
-		<fieldset>
-			<legend>WCAG version</legend>
-			{#each WCAG.versions as version}
-				<label>
-					<input
-						type="radio"
-						name="version"
-						value={version}
-						checked={version === wcag.version}
-						onchange={() => (wcag.version = version)}
-					/>
-					{version}
-				</label>
-			{/each}
+			<button type="button">+</button>
 		</fieldset>
 
-		<fieldset>
-			<legend>WCAG level</legend>
-			{#each WCAG.levels as level}
-				<label>
-					<input
-						type="radio"
-						name="level"
-						value={level}
-						checked={level === wcag.level}
-						onchange={() => (wcag.level = level)}
-					/>
-					{level}
-				</label>
-			{/each}
+		<fieldset class="config">
+			<legend>Configuration</legend>
+
+			<fieldset>
+				<legend>WCAG version</legend>
+				{#each WCAG.versions as version}
+					<label>
+						<input
+							type="radio"
+							name="version"
+							value={version}
+							checked={version === wcag.version}
+							onchange={() => (wcag.version = version)}
+						/>
+						{version}
+					</label>
+				{/each}
+			</fieldset>
+
+			<fieldset>
+				<legend>WCAG level</legend>
+				{#each WCAG.levels as level}
+					<label>
+						<input
+							type="radio"
+							name="level"
+							value={level}
+							checked={level === wcag.level}
+							onchange={() => (wcag.level = level)}
+						/>
+						{level}
+					</label>
+				{/each}
+			</fieldset>
+
+			<fieldset>
+				<legend>Elements</legend>
+				{#each Object.entries(WCAG.elements) as [key, string]}
+					<label>
+						<input
+							type="checkbox"
+							name="elements"
+							value={key}
+							checked={wcag.elements[key]}
+							onchange={() => (wcag.elements[key] = !wcag.elements[key])}
+							disabled={key === 'graphic' && wcag.version === '2.0'}
+						/>
+						{string}
+					</label>
+				{/each}
+			</fieldset>
 		</fieldset>
 
-		<fieldset>
-			<legend>Elements</legend>
-			{#each Object.entries(WCAG.elements) as [key, string]}
-				<label>
-					<input
-						type="checkbox"
-						name="elements"
-						value={key}
-						checked={wcag.elements[key]}
-						onchange={() => (wcag.elements[key] = !wcag.elements[key])}
-						disabled={key === 'graphic' && wcag.version === '2.0'}
-					/>
-					{string}
-				</label>
-			{/each}
-		</fieldset>
-	</fieldset>
-
-	<button type="submit">Get permalink</button>
-</form>
+		<button type="submit" class="permalink-btn">Get permalink</button>
+	</form>
+</div>
 
 <style>
-	fieldset {
-		border: none;
+	.form-container {
+		container-name: form-container;
+		container-type: inline-size;
+	}
+
+	form {
+		display: flex;
+		gap: 1rem;
+
+		@container form-container (width < 30rem) {
+			flex-direction: column;
+		}
+	}
+
+	.colors,
+	.config {
+		padding: 0;
+		& > legend {
+			text-transform: uppercase;
+			width: 100%;
+			border-bottom: 1px solid currentColor;
+			margin-block-end: 0.5rem;
+		}
+	}
+
+	.config {
+		display: flex;
+		gap: 0.5rem;
+
+		@media (orientation: landscape) {
+			flex-direction: column;
+		}
+
+		fieldset {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			padding: 0;
+		}
+	}
+
+	label {
+		white-space: nowrap;
+		display: block;
+		margin-inline-start: 0.5rem;
+	}
+
+	.permalink-btn {
+		align-self: start;
 	}
 </style>
