@@ -1,8 +1,14 @@
 # Contrast Grid
 
-A little experiment to build a colour contrast grid, learning SvelteKit and ColorJS.
+A little experiment to build a dynamic colour contrast grid!
 
 **Note:** I'm Canadian, so I prefer spelling "colour" with a "u". However, to avoid bugs, all functional use of the word will follow the web standard "color" spelling. I will insist on adding the "u" in all rendered/UI text, though, because 🍁.
+
+## Stack
+
+- [Svelte 5](https://svelte.dev/) & SvelteKit
+- [ColorJS](https://colorjs.io/) for colour contrast calculation
+- Some web components from [Shoelace](https://shoelace.style)
 
 ## Getting started
 
@@ -12,9 +18,14 @@ A little experiment to build a colour contrast grid, learning SvelteKit and Colo
 
 Just some brief notes to keep track of where I'm at and what I'm planning to do next.
 
-1. [CURRENT] Make UI pretty
+1. [CURRENT] Enable add/remove colours to expand palette and grid
 1. Make permalink button copy URL to clipboard
-1. Enable add/remove colours to expand palette and grid
+1. Full a11y check
+
+### Issues
+
+- Indicator component doesn't update (contrast not reactive)
+- conditions for hiding cells is wrong
 
 ### Ideas
 
