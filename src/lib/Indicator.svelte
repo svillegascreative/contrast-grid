@@ -3,12 +3,12 @@
 	import { passingContrast } from '../helpers';
 
 	let { element, contrast, children } = $props();
-	const { wcag } = getContext('app');
+	const { settings } = getContext('app');
 
-	const passing = passingContrast(element, wcag.level, contrast);
+	const passing = passingContrast(element, settings.level, contrast);
 </script>
 
-{#if wcag.elements[element]}
+{#if settings.elements[element]}
 	<span class={passing ? 'solid' : 'dashed'}>
 		{#if passing}
 			<sl-icon name="check-lg" aria-label="pass"></sl-icon>

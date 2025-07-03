@@ -4,7 +4,7 @@
 	import Indicator from './Indicator.svelte';
 
 	let { fg = 'black', bg = 'white' } = $props();
-	const { wcag } = getContext('app');
+	const { settings } = getContext('app');
 
 	let contrast = $derived.by(() => {
 		let fgColor = new Color(fg);
@@ -13,7 +13,7 @@
 	});
 </script>
 
-{#if (wcag.level === 'AAA' && wcag.elements.text && contrast < 7) || (wcag.level === 'AAA' && wcag.elements.largeText && contrast < 4.5)}
+{#if (settings.level === 'AAA' && settings.elements.text && contrast < 7) || (settings.level === 'AAA' && settings.elements.largeText && contrast < 4.5)}
 	<div></div>
 {:else}
 	<article style="color: {fg}; background-color: {bg};">

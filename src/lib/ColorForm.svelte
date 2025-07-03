@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
 	import { WCAG } from '../constants';
 
-	const { wcag, colors } = getContext('app');
+	const { settings, colors } = getContext('app');
 </script>
 
 <div class="form-container">
@@ -47,8 +47,8 @@
 							type="radio"
 							name="version"
 							value={version}
-							checked={version === wcag.version}
-							onchange={() => (wcag.version = version)}
+							checked={version === settings.version}
+							onchange={() => (settings.version = version)}
 						/>
 						{version}
 					</label>
@@ -63,8 +63,8 @@
 							type="radio"
 							name="level"
 							value={level}
-							checked={level === wcag.level}
-							onchange={() => (wcag.level = level)}
+							checked={level === settings.level}
+							onchange={() => (settings.level = level)}
 						/>
 						{level}
 					</label>
@@ -79,9 +79,9 @@
 							type="checkbox"
 							name="elements"
 							value={key}
-							checked={wcag.elements[key]}
-							onchange={() => (wcag.elements[key] = !wcag.elements[key])}
-							disabled={key === 'graphic' && wcag.version === '2.0'}
+							checked={settings.elements[key]}
+							onchange={() => (settings.elements[key] = !settings.elements[key])}
+							disabled={key === 'graphic' && settings.version === '2.0'}
 						/>
 						{string}
 					</label>

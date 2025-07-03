@@ -2,7 +2,7 @@
 	import { getContext } from 'svelte';
 	import Swatch from './Swatch.svelte';
 
-	const { wcag, colors } = getContext('app');
+	const { settings, colors } = getContext('app');
 </script>
 
 <table>

@@ -3,7 +3,7 @@
 	import ColorForm from '$lib/ColorForm.svelte';
 	import ColorGrid from '$lib/ColorGrid.svelte';
 	import { colors } from '../state/colors.svelte.js';
-	import { wcag } from '../state/wcag.svelte.js';
+	import { settings } from '../state/settings.svelte.js';
 
 	// onMount(() => {
 	// 	let url = new URL(window.location.href);
@@ -13,7 +13,7 @@
 	// });
 
 	setContext('app', {
-		wcag,
+		settings,
 		colors
 	});
 </script>
