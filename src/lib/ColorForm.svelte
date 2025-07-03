@@ -31,7 +31,9 @@
 				onsl-input={(event) => (colors.c3 = event.target.value)}
 			></sl-color-picker>
 
-			<button type="button">+</button>
+			<button type="button" aria-label="add color" class="add-color-btn">
+				<sl-icon name="plus-lg" aria-hidden="true"></sl-icon>
+			</button>
 		</fieldset>
 
 		<fieldset class="config">
@@ -108,6 +110,9 @@
 
 	.colors,
 	.config {
+		display: flex;
+		gap: 0.5rem;
+
 		padding: 0;
 		& > legend {
 			text-transform: uppercase;
@@ -117,10 +122,22 @@
 		}
 	}
 
-	.config {
-		display: flex;
-		gap: 0.5rem;
+	.colors {
+		flex-wrap: wrap;
+		align-items: center;
+	}
 
+	.add-color-btn {
+		background: #ccc;
+		border: none;
+		border-radius: 50%;
+		aspect-ratio: 1/1;
+		display: inline-flex;
+		align-items: center;
+		font-size: 1.5rem;
+	}
+
+	.config {
 		@media (orientation: landscape) {
 			flex-direction: column;
 		}
