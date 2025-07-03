@@ -34,7 +34,6 @@
 	main {
 		height: 100vh;
 		display: grid;
-		gap: 2rem;
 
 		@media (orientation: portrait) {
 			grid-template-columns: 1fr;

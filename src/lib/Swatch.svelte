@@ -1,9 +1,9 @@
 <script>
 	import { getContext } from 'svelte';
 	import Color from 'colorjs.io';
+	import Indicator from './Indicator.svelte';
 
 	let { fg = 'black', bg = 'white' } = $props();
-
 	const { wcag } = getContext('app');
 
 	let contrast = $derived.by(() => {
@@ -19,29 +19,9 @@
 	<article style="color: {fg}; background-color: {bg};">
 		<p class="ratio">{contrast.toFixed(2)}</p>
 
-		{#if wcag.elements.text}
-			<span
-				>{(wcag.level === 'AA' && contrast > 4.5) || (wcag.level === 'AAA' && contrast > 7)
-					? '✔️'
-					: '❌'} TEXT</span
-			>
-		{/if}
-
-		{#if wcag.elements.largeText}
-			<span
-				>{(wcag.level === 'AA' && contrast > 3) || (wcag.level === 'AAA' && contrast > 4.5)
-					? '✔️'
-					: '❌'} LARGE</span
-			>
-		{/if}
-
-		{#if wcag.version !== '2.0' && wcag.elements.graphic}
-			<span
-				>{(wcag.level === 'AA' && contrast > 3) || (wcag.level === 'AAA' && contrast > 4.5)
-					? '✔️'
-					: '❌'} UI</span
-			>
-		{/if}
+		<Indicator element="text" {contrast}>TEXT</Indicator>
+		<Indicator element="largeText" {contrast}>LARGE</Indicator>
+		<Indicator element="graphic" {contrast}>UI</Indicator>
 	</article>
 {/if}
 
