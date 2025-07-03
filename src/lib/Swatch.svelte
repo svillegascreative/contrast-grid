@@ -30,6 +30,7 @@
 		aspect-ratio: 1 / 1;
 		display: flex;
 		flex-direction: column;
+		gap: 0.2em;
 		justify-content: center;
 		align-items: center;
 		padding: 1rem;
