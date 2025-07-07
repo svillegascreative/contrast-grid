@@ -24,7 +24,6 @@ Just some brief notes to keep track of where I'm at and what I'm planning to do 
 
 ### Issues
 
-- [CURRENT] Indicator component doesn't update (contrast not reactive)
 - conditions for hiding cells is wrong
 
 ### Ideas

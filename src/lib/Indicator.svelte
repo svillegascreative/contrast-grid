@@ -3,9 +3,9 @@
 	import { passingContrast } from '../helpers';
 
 	let { element, contrast, children } = $props();
-	const { settings } = getContext('app');
+	let { settings } = getContext('app');
 
-	const passing = passingContrast(element, settings.level, contrast);
+	const passing = $derived(passingContrast(element, settings.level, contrast));
 </script>
 
 {#if settings.elements[element]}
