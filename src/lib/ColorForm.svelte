@@ -3,10 +3,8 @@
 	import { WCAG } from '../constants';
 
 	let { settings, colors } = getContext('app');
-	let numOfColors = $state(14);
-	let currentColors = $derived(Object.entries(colors).slice(0, numOfColors));
 
-	const colorLabel = (id) => `Colour ${id.slice(1)}`;
+	const addColor = () => colors.push({ id: colors.length + 1, value: 'blue' });
 </script>
 
 <div class="form-container">
@@ -14,16 +12,16 @@
 		<fieldset class="colors">
 			<legend>Grid Colours</legend>
 
-			{#each currentColors as [id, color]}
+			{#each colors as color}
 				<sl-color-picker
-					id={`color-input-${id}`}
-					label={colorLabel(id)}
-					value={color}
-					onsl-input={(event) => (colors.c1 = event.target.value)}
+					id={`color-input-${color.id}`}
+					label={`Colour ${color.id}`}
+					value={color.value}
+					onsl-input={(event) => (color.value = event.target.value)}
 				></sl-color-picker>
 			{/each}
 
-			<button type="button" aria-label="add color" class="add-color-btn">
+			<button type="button" aria-label="Add color" class="add-color-btn" onclick={addColor}>
 				<sl-icon name="plus-lg" aria-hidden="true"></sl-icon>
 			</button>
 		</fieldset>
