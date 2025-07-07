@@ -9,28 +9,19 @@
 	<tbody>
 		<tr>
 			<td></td>
-			<th>{colors.c1}</th>
-			<th>{colors.c2}</th>
-			<th>{colors.c3}</th>
+			{#each colors as color}
+				<th>{color.value}</th>
+			{/each}
 		</tr>
-		<tr>
-			<th>{colors.c1}</th>
-			<td><Swatch fg={colors.c1} bg={colors.c1} /></td>
-			<td><Swatch fg={colors.c1} bg={colors.c2} /></td>
-			<td><Swatch fg={colors.c1} bg={colors.c3} /></td>
-		</tr>
-		<tr>
-			<th>{colors.c2}</th>
-			<td><Swatch fg={colors.c2} bg={colors.c1} /></td>
-			<td><Swatch fg={colors.c2} bg={colors.c2} /></td>
-			<td><Swatch fg={colors.c2} bg={colors.c3} /></td>
-		</tr>
-		<tr>
-			<th>{colors.c3}</th>
-			<td><Swatch fg={colors.c3} bg={colors.c1} /></td>
-			<td><Swatch fg={colors.c3} bg={colors.c2} /></td>
-			<td><Swatch fg={colors.c3} bg={colors.c3} /></td>
-		</tr>
+
+		{#each colors as color}
+			<tr>
+				<th>{color.value}</th>
+				{#each colors as c}
+					<td><Swatch fg={color.value} bg={c.value} /></td>
+				{/each}
+			</tr>
+		{/each}
 	</tbody>
 </table>
 
