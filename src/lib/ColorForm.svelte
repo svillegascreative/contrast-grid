@@ -2,7 +2,11 @@
 	import { getContext } from 'svelte';
 	import { WCAG } from '../constants';
 
-	const { settings, colors } = getContext('app');
+	let { settings, colors } = getContext('app');
+	let numOfColors = $state(14);
+	let currentColors = $derived(Object.entries(colors).slice(0, numOfColors));
+
+	const colorLabel = (id) => `Colour ${id.slice(1)}`;
 </script>
 
 <div class="form-container">
@@ -10,26 +14,14 @@
 		<fieldset class="colors">
 			<legend>Grid Colours</legend>
 
-			<label for="color-input-1" class="visually-hidden">Colour 1</label>
-			<sl-color-picker
-				id="color-input-1"
-				value={colors.c1}
-				onsl-input={(event) => (colors.c1 = event.target.value)}
-			></sl-color-picker>
-
-			<label for="color-input-2" class="visually-hidden">Colour 2</label>
-			<sl-color-picker
-				id="color-input-1"
-				value={colors.c2}
-				onsl-input={(event) => (colors.c2 = event.target.value)}
-			></sl-color-picker>
-
-			<label for="color-input-3" class="visually-hidden">Colour 3</label>
-			<sl-color-picker
-				id="color-input-1"
-				value={colors.c3}
-				onsl-input={(event) => (colors.c3 = event.target.value)}
-			></sl-color-picker>
+			{#each currentColors as [id, color]}
+				<sl-color-picker
+					id={`color-input-${id}`}
+					label={colorLabel(id)}
+					value={color}
+					onsl-input={(event) => (colors.c1 = event.target.value)}
+				></sl-color-picker>
+			{/each}
 
 			<button type="button" aria-label="add color" class="add-color-btn">
 				<sl-icon name="plus-lg" aria-hidden="true"></sl-icon>
