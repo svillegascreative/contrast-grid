@@ -18,13 +18,13 @@ A little experiment to build a dynamic colour contrast grid!
 
 Just some brief notes to keep track of where I'm at and what I'm planning to do next.
 
-1. [CURRENT] Enable add/remove colours to expand palette and grid
 1. Make permalink button copy URL to clipboard
 1. Full a11y check
+1. Enable removing colours. What is a good UI for this?
 
 ### Issues
 
-- Indicator component doesn't update (contrast not reactive)
+- [CURRENT] Indicator component doesn't update (contrast not reactive)
 - conditions for hiding cells is wrong
 
 ### Ideas
