@@ -60,23 +60,6 @@
 					</label>
 				{/each}
 			</fieldset>
-
-			<fieldset>
-				<legend>Show indicators for:</legend>
-				{#each Object.entries(WCAG.elements) as [key, string]}
-					<label>
-						<input
-							type="checkbox"
-							name="elements"
-							value={key}
-							checked={settings.elements[key]}
-							onchange={() => (settings.elements[key] = !settings.elements[key])}
-							disabled={key === 'graphic' && settings.version === '2.0'}
-						/>
-						{string}
-					</label>
-				{/each}
-			</fieldset>
 		</fieldset>
 
 		<label>

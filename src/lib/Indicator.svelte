@@ -8,16 +8,14 @@
 	const passing = $derived(passingContrast(element, settings.level, contrast));
 </script>
 
-{#if settings.elements[element]}
-	<span class={passing ? 'solid' : 'dashed'}>
-		{#if passing}
-			<sl-icon name="check-lg" aria-label="pass"></sl-icon>
-		{:else}
-			<sl-icon name="x-lg" aria-label="fail"></sl-icon>
-		{/if}
-		{@render children()}
-	</span>
-{/if}
+<span class={passing ? 'solid' : 'dashed'}>
+	{#if passing}
+		<sl-icon name="check-lg" aria-label="pass"></sl-icon>
+	{:else}
+		<sl-icon name="x-lg" aria-label="fail"></sl-icon>
+	{/if}
+	{@render children()}
+</span>
 
 <style>
 	span {

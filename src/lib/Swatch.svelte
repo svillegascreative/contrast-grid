@@ -13,7 +13,7 @@
 	});
 </script>
 
-{#if (settings.showFailing && contrast < 3) || (settings.level === 'AAA' && settings.elements.text && contrast < 7) || (settings.level === 'AAA' && settings.elements.largeText && contrast < 4.5)}
+{#if settings.showFailing && (contrast < 3 || (settings.level === 'AAA' && contrast < 4.5))}
 	<div></div>
 {:else}
 	<article style="color: {fg}; background-color: {bg};">
