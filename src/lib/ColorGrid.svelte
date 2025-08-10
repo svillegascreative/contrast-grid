@@ -18,7 +18,11 @@
 			<tr>
 				<th>{color.value}</th>
 				{#each colors as c}
-					<td><Swatch fg={color.value} bg={c.value} /></td>
+					<td>
+						{#if color.value !== c.value}
+							<Swatch fg={color.value} bg={c.value} />
+						{/if}
+					</td>
 				{/each}
 			</tr>
 		{/each}
