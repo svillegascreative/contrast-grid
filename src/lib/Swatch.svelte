@@ -4,7 +4,7 @@
 	import Indicator from './Indicator.svelte';
 
 	let { fg = 'black', bg = 'white' } = $props();
-	const { settings } = getContext('app');
+	let { settings } = getContext('app');
 
 	let contrast = $derived.by(() => {
 		let fgColor = new Color(fg);
@@ -13,7 +13,7 @@
 	});
 </script>
 
-{#if (settings.level === 'AAA' && settings.elements.text && contrast < 7) || (settings.level === 'AAA' && settings.elements.largeText && contrast < 4.5)}
+{#if (settings.showFailing && contrast < 3) || (settings.level === 'AAA' && settings.elements.text && contrast < 7) || (settings.level === 'AAA' && settings.elements.largeText && contrast < 4.5)}
 	<div></div>
 {:else}
 	<article style="color: {fg}; background-color: {bg};">

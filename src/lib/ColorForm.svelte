@@ -62,7 +62,7 @@
 			</fieldset>
 
 			<fieldset>
-				<legend>Elements</legend>
+				<legend>Show indicators for:</legend>
 				{#each Object.entries(WCAG.elements) as [key, string]}
 					<label>
 						<input
@@ -78,6 +78,16 @@
 				{/each}
 			</fieldset>
 		</fieldset>
+
+		<label>
+			<input
+				type="checkbox"
+				name="hide-failing"
+				checked={!settings.showFailing}
+				onchange={() => (settings.showFailing = !settings.showFailing)}
+			/>
+			Show failing pairs
+		</label>
 
 		<button type="submit" class="permalink-btn">Get permalink</button>
 	</form>

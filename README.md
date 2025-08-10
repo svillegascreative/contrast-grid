@@ -18,15 +18,18 @@ A little experiment to build a dynamic colour contrast grid!
 
 Just some brief notes to keep track of where I'm at and what I'm planning to do next.
 
-1. Make permalink button copy URL to clipboard
 1. Full a11y check
+1. Keep swatch size consistent to avoid grid shifting
+1. Make permalink button copy URL to clipboard
 1. Enable removing colours. What is a good UI for this?
 
 ### Issues
 
-- conditions for hiding cells is wrong
+- [CURRENT] conditions for hiding cells is wrong
 
 ### Ideas
 
 - Calculate "percent passing"
 - Create collection of palettes
+- Highlight tanble headers (colour values) when a swatch is hovered/focused
+- hide swatches selectively
