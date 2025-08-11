@@ -1,11 +1,11 @@
 <script>
 	import { getContext } from 'svelte';
-	import { passingContrast } from '../helpers';
+	import { PASSING_RATIOS } from '../constants';
 
 	let { element, contrast, children } = $props();
 	let { settings } = getContext('app');
 
-	const passing = $derived(passingContrast(element, settings.level, contrast));
+	const passing = $derived(contrast > PASSING_RATIOS[settings.level][element]);
 </script>
 
 <span class={passing ? 'solid' : 'dashed'}>

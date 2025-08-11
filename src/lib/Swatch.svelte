@@ -1,6 +1,7 @@
 <script>
 	import { getContext } from 'svelte';
 	import Color from 'colorjs.io';
+	import { PASSING_RATIOS } from '../constants';
 	import Indicator from './Indicator.svelte';
 
 	let { fg = 'black', bg = 'white' } = $props();
@@ -13,7 +14,7 @@
 	});
 </script>
 
-{#if settings.showFailing && (contrast < 3 || (settings.level === 'AAA' && contrast < 4.5))}
+{#if settings.showFailing && contrast < PASSING_RATIOS[settings.level].largeText}
 	<div></div>
 {:else}
 	<article style="color: {fg}; background-color: {bg};">
