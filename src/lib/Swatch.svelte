@@ -12,9 +12,12 @@
 		let bgColor = new Color(bg);
 		return fgColor.contrastWCAG21(bgColor);
 	});
+
+	/* Graphics/UI has the lowest required contrast (after 2.0) */
+	const minElement = settings.version === '2.0' ? 'text' : 'graphic';
 </script>
 
-{#if settings.showFailing && contrast < PASSING_RATIOS[settings.level].largeText}
+{#if settings.showFailing && contrast < PASSING_RATIOS[settings.level][minElement]}
 	<div></div>
 {:else}
 	<article style="color: {fg}; background-color: {bg};">
