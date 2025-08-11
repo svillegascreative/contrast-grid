@@ -25,7 +25,7 @@ Just some brief notes to keep track of where I'm at and what I'm planning to do 
 
 ### Issues
 
-- [CURRENT] conditions for hiding cells is wrong
+[Issues](https://github.com/svillegascreative/contrast-grid/issues)
 
 ### Ideas
 
