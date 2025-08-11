@@ -23,9 +23,11 @@
 	<article style="color: {fg}; background-color: {bg};">
 		<p class="ratio">{contrast.toFixed(2)}</p>
 
-		<Indicator element="text" {contrast}>TEXT</Indicator>
-		<Indicator element="largeText" {contrast}>LARGE</Indicator>
-		<Indicator element="graphic" {contrast}>UI</Indicator>
+		<div>
+			<Indicator element="text" {contrast} />
+			<Indicator element="largeText" {contrast} />
+			<Indicator element="graphic" {contrast} />
+		</div>
 	</article>
 {/if}
 
