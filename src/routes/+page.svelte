@@ -4,6 +4,7 @@
 	import ColorGrid from '$lib/ColorGrid.svelte';
 	import { colors } from '../state/colors.svelte.js';
 	import { settings } from '../state/settings.svelte.js';
+	import Legend from '$lib/Legend.svelte';
 
 	// onMount(() => {
 	// 	let url = new URL(window.location.href);
@@ -27,6 +28,7 @@
 
 	<section aria-label="contrast grid">
 		<ColorGrid />
+		<Legend />
 	</section>
 </main>
 
