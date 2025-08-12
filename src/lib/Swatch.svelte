@@ -18,9 +18,9 @@
 </script>
 
 {#if settings.showFailing && contrast < PASSING_RATIOS[settings.level][minElement]}
-	<div></div>
+	<div class="square"></div>
 {:else}
-	<article style="color: {fg}; background-color: {bg};">
+	<article class="square" style="color: {fg}; background-color: {bg};">
 		<p class="ratio">{contrast.toFixed(2)}</p>
 
 		<div>
@@ -32,14 +32,19 @@
 {/if}
 
 <style>
-	article {
+	.square {
 		aspect-ratio: 1 / 1;
+		width: 100%;
+		min-width: 8rem; /* magic number! 🤷‍♀️ */
+	}
+
+	article {
 		display: flex;
 		flex-direction: column;
 		gap: 0.2em;
 		justify-content: center;
 		align-items: center;
-		padding: 1rem;
+		padding: 0.5rem;
 	}
 
 	.ratio {

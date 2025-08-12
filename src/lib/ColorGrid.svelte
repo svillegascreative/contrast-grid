@@ -32,17 +32,19 @@
 <style>
 	table {
 		margin: 1rem 2rem;
-	}
-
-	table,
-	th,
-	td {
 		border: none;
+		border-collapse: separate;
+		border-spacing: 0.4rem;
 	}
 
 	th,
 	td {
-		padding: 4px;
+		border: 1px solid #ddd;
+	}
+
+	th,
+	td {
+		padding: 0;
 	}
 
 	th {
